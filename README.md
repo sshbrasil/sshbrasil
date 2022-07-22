@@ -28,13 +28,13 @@ tput cnorm
 }
 clear
 echo -e "\033[1;31m════════════════════════════════════════════════════\033[0m"
-tput setaf 7 ; tput setab 4 ; tput bold ; printf '%40s%s%-12s\n' "INSTALADOR SLOWDNS SBR INJECTOR" ; tput sgr0
+tput setaf 7 ; tput setab 4 ; tput bold ; printf '%40s%s%-12s\n' "INSTALADOR SLOWDNS MANAGER" ; tput sgr0
 echo -e "\033[1;31m════════════════════════════════════════════════════\033[0m"
 echo -e ""
 echo -e "      Esse script irá fazer a instalação do"
 echo -e "   gerenciador para o modo de conexão SlowDNS."
 echo -e ""
-echo -e "         \033[1;33mInstalador feito por SBR Injector \033[1;37m"
+echo -e "         \033[1;33mInstalador feito por edição \033[1;37m"
 echo -e "\033[1;31m════════════════════════════════════════════════════\033[0m"
 echo ""
 echo -e "BAIXANDO DEPENDENCIAS..."
@@ -57,20 +57,20 @@ fun_bar 'fun_att'
 echo -e "CONFIGURANDO FIREWALL..."
 echo ""
 fun_ports () {
-apt install firewalld -y && firewall-cmd --zone=public --permanent --add-port=80/tcp && firewall-cmd --zone=public --permanent --add-port=8080/tcp && firewall-cmd --zone=public --permanent --add-port=443/tcp && firewall-cmd && firewall-cmd --zone=public --permanent --add-port=53/udp && firewall-cmd --zone=public --permanent --add-port=5300/udp && firewall-cmd && firewall-cmd --zone=public --permanent --add-port=2222/tcp && firewall-cmd --reload
+apt install firewalld -y && sudo firewall-cmd --zone=public --permanent --add-port=80/tcp && sudo firewall-cmd --zone=public --permanent --add-port=8080/tcp && sudo firewall-cmd --zone=public --permanent --add-port=443/tcp && sudo firewall-cmd && sudo firewall-cmd --zone=public --permanent --add-port=53/udp && sudo firewall-cmd --zone=public --permanent --add-port=5300/udp && sudo firewall-cmd && sudo firewall-cmd --zone=public --permanent --add-port=2222/tcp && sudo firewall-cmd --reload
 }
 fun_bar 'fun_ports'
 echo -e "DEFININDO DNS DO CLOUDFLARE..."
 echo ""
 fun_dnscf () {
-systemctl disable systemd-resolved.service && systemctl stop systemd-resolved.service && mv /etc/resolv.conf /etc/resolv.conf.bkp && echo "nameserver 1.1.1.1" > /etc/resolv.conf
-systemctl enable systemd-resolved.service && systemctl start systemd-resolved.service
+sudo systemctl disable systemd-resolved.service && sudo systemctl stop systemd-resolved.service && sudo mv /etc/resolv.conf /etc/resolv.conf.bkp && echo "nameserver 1.1.1.1" > /etc/resolv.conf
+sudo systemctl enable systemd-resolved.service && sudo systemctl start systemd-resolved.service
 sleep 2
 }
 fun_bar 'fun_dnscf'
 clear
 echo -e "\033[1;31m════════════════════════════════════════════════════\033[0m"
-tput setaf 7 ; tput setab 4 ; tput bold ; printf '%40s%s%-12s\n' "INSTALADOR SLOWDNS SBR INJECTOR" ; tput sgr0
+tput setaf 7 ; tput setab 4 ; tput bold ; printf '%40s%s%-12s\n' "INSTALADOR SLOWDNS MANAGER" ; tput sgr0
 echo -e "\033[1;31m════════════════════════════════════════════════════\033[0m"
 echo ""
 echo -e "          \033[1;33mINSTALAÇÃO CONCLUIDA!\033[0m          "
